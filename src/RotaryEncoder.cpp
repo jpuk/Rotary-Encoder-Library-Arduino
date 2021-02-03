@@ -1,8 +1,8 @@
 #include "Arduino.h"
 #include "RotaryEncoder.h" 
 
-uint8_t RotaryEncoder::setup(uint8_t clk, uint8_t dt, uint8_t sw, uint8_t defaultValue,
-						uint8_t minValue, int maxValue, uint8_t increment,
+uint8_t RotaryEncoder::setup(uint8_t clk, uint8_t dt, uint8_t sw, int defaultValue,
+						int minValue, int maxValue, uint8_t increment,
 						void (*rotaryInterruptRoutine), void (*buttonInterruptRoutine)){
   Serial.println("Setting up rotary encoder");
   _clk = clk;
@@ -22,7 +22,7 @@ uint8_t RotaryEncoder::setup(uint8_t clk, uint8_t dt, uint8_t sw, uint8_t defaul
   return 0;
 }
 
-uint8_t RotaryEncoder::getValue(void){
+int RotaryEncoder::getValue(void){
       if (digitalRead(_dt) == LOW)
       {
           virtualPosition = virtualPosition - _increment;
@@ -45,7 +45,7 @@ uint8_t RotaryEncoder::getValue(void){
   return virtualPosition;
 }
 
-void RotaryEncoder::setValue(uint8_t value){
+void RotaryEncoder::setValue(int value){
   virtualPosition = value;
 }
 
