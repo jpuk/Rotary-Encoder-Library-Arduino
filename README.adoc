@@ -1,4 +1,5 @@
 = Rotary Encoder Library for Arduino =
+
 Works in a pinch but please look at other alternatives for serious use. This is a rough and ready hodge podge of code I've put together for
 personal projects.
 
