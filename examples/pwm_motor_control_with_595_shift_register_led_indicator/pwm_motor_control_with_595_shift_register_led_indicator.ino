@@ -74,14 +74,14 @@ void rotaryInterruptHandler(void){
         }   
        sr.set(7, value * 4);     
       }
-    if (value > 64 && value < 128){
+    if (value > 63 && value < 128){
       for(int i = 4; i < 6;i++){
         sr.set(i,0); 
         }  
         sr.set(7, 255);
         sr.set(6, (value - 64) * 4);
     }
-    if (value > 128 && value < 192){
+    if (value > 127 && value < 192){
       for(int i = 4; i < 5;i++){
         sr.set(i,0); 
         }  
@@ -89,7 +89,7 @@ void rotaryInterruptHandler(void){
         sr.set(6, 255);
         sr.set(5, (value - 128) * 4);
     }
-    if (value > 192 && value < 256){
+    if (value > 191 && value < 256){
         sr.set(7, 255);
         sr.set(6, 255);
         sr.set(5, 255);
